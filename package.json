@@ -1,0 +1,8 @@
+{
+  "name": "photo_collection",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:sasurai-usagi3/photo_collection.git",
+  "author": "t_uyama",
+  "license": "MIT"
+}
