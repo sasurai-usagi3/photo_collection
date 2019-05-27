@@ -40,6 +40,11 @@ module.exports = {
       filename: 'application.css'
     })
   ],
+  resolve: {
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js'
+    }
+  },
   output: {
     filename: '[name].js',
     path: path.join(__dirname, 'docs')
