@@ -7,11 +7,13 @@
   <script src="/application.js"></script>
 </head>
 <body>
-  <template id="js-template-photo-link">
-    <li>
-      <img :src="src">
-      <h2>{{ title }}</h2>
+  <ul id="js-list-album">
+    <li v-for="album in albums">
+      <a>
+        <img :src="album.image">
+        <h2>{{ album.title }}</h2>
+      </a>
     </li>
-  </template>
+  </ul>
 </body>
 </html>
