@@ -7,11 +7,13 @@
   <script src="/index.js"></script>
 </head>
 <body>
+  <h1>sasurai_usagi3's<br>Photographs</h1>
+  <h2>目次</h2>
   <ul id="js-list-album">
     <li v-for="album in albums">
       <a :href="album.url">
         <img :src="album.image">
-        <h2>{{ album.title }}</h2>
+        <h3>{{ album.title }}</h3>
       </a>
     </li>
   </ul>
