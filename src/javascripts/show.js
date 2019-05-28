@@ -14,14 +14,29 @@ window.addEventListener('load', () => {
   }
 
   const albumId = queryAlbumId[1] || '';
+  const album = new Vue({
+    el: '#js-album',
+    data: {
+      title: null,
+      description: null,
+      photoUrls: []
+    }
+  });
 
   database.ref(`/contents/albums/${albumId}`).once('value').then(snapshot => {
-    const photographs = snapshot.val();
+    const rawAlbum = snapshot.val();
+    let photoUrls = [];
 
-    if (photographs == null) {
+    if (rawAlbum == null) {
       return;
     }
 
-    console.log(photographs);
+    album.title = rawAlbum.title;
+    album.description = rawAlbum.description;
+
+    for (let key in rawAlbum.photos) {
+      photoUrls.push(rawAlbum.photos[key]);
+    }
+    album.photoUrls = photoUrls;
   });
 });
