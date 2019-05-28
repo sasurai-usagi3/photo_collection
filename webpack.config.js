@@ -5,7 +5,8 @@ const CSSnano = require('cssnano');
 module.exports = {
   mode: 'production',
   entry: {
-    application: './src/javascripts/application.js',
+    index: './src/javascripts/index.js',
+    show: './src/javascripts/show.js',
     style: './src/stylesheets/application.sass'
   },
   module: {
