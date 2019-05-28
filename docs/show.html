@@ -7,15 +7,17 @@
   <script src="/show.js"></script>
 </head>
 <body>
-  <h1>sasurai_usagi3's<br>Photographs</h1>
-  <article id="js-album">
-    <h2>{{ title }}</h2>
-    <p>{{ description }}</p>
-    <ul>
-      <li v-for="photoUrl in photoUrls">
-        <img :src="photoUrl">
-      </li>
-    </ul>
-  </article>
+  <div class="l-container">
+    <h1>sasurai_usagi3's<br>Photographs</h1>
+    <article id="js-album">
+      <h2>{{ title }}</h2>
+      <p>{{ description }}</p>
+      <ul>
+        <li v-for="photoUrl in photoUrls">
+          <img :src="photoUrl">
+        </li>
+      </ul>
+    </article>
+  </div>
 </body>
 </html>
