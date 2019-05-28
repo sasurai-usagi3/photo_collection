@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/javascripts/index.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/javascripts/show.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -238,15 +238,15 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var fire
 
 /***/ }),
 
-/***/ "./src/javascripts/index.js":
-/*!**********************************!*\
-  !*** ./src/javascripts/index.js ***!
-  \**********************************/
+/***/ "./src/javascripts/show.js":
+/*!*********************************!*\
+  !*** ./src/javascripts/show.js ***!
+  \*********************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _firebase__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./firebase */ \"./src/javascripts/firebase.js\");\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.esm.js\");\n\n\n\nwindow.addEventListener('load', () => {\n  const database = _firebase__WEBPACK_IMPORTED_MODULE_0__[\"firebase\"].database();\n  const listAlbum = new vue__WEBPACK_IMPORTED_MODULE_1__[\"default\"]({\n    el: '#js-list-album',\n    data: {\n      albums: []\n    }\n  });\n\n  database.ref('/index/albums').once('value').then(snapshot => {\n    const rawAlbums = snapshot.val();\n    let albums = [];\n\n    for(let key in rawAlbums) {\n      const rawAlbum = rawAlbums[key];\n      const album = {\n        title: rawAlbum.title,\n        url: `/show.html?album_id=${key}`,\n        image: rawAlbum.image\n      };\n\n      albums.push(album);\n    }\n\n    listAlbum.albums = albums;\n  });\n});\n\n\n//# sourceURL=webpack:///./src/javascripts/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _firebase__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./firebase */ \"./src/javascripts/firebase.js\");\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.esm.js\");\n\n\n\nwindow.addEventListener('load', () => {\n  const database = _firebase__WEBPACK_IMPORTED_MODULE_0__[\"firebase\"].database();\n  const queryAlbumId = location.search\n    .slice(1)\n    .split('&')\n    .map(x => x.split('='))\n    .find(x => x[0] == 'album_id');\n\n  if (queryAlbumId == null) {\n    return;\n  }\n\n  const albumId = queryAlbumId[1] || '';\n  const album = new vue__WEBPACK_IMPORTED_MODULE_1__[\"default\"]({\n    el: '#js-album',\n    data: {\n      title: null,\n      description: null,\n      photoUrls: []\n    }\n  });\n\n  database.ref(`/contents/albums/${albumId}`).once('value').then(snapshot => {\n    const rawAlbum = snapshot.val();\n    let photoUrls = [];\n\n    if (rawAlbum == null) {\n      return;\n    }\n\n    album.title = rawAlbum.title;\n    album.description = rawAlbum.description;\n\n    for (let key in rawAlbum.photos) {\n      photoUrls.push(rawAlbum.photos[key]);\n    }\n    album.photoUrls = photoUrls;\n  });\n});\n\n\n//# sourceURL=webpack:///./src/javascripts/show.js?");
 
 /***/ })
 

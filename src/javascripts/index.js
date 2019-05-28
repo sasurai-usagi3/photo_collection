@@ -15,7 +15,14 @@ window.addEventListener('load', () => {
     let albums = [];
 
     for(let key in rawAlbums) {
-      albums.push(rawAlbums[key]);
+      const rawAlbum = rawAlbums[key];
+      const album = {
+        title: rawAlbum.title,
+        url: `/show.html?album_id=${key}`,
+        image: rawAlbum.image
+      };
+
+      albums.push(album);
     }
 
     listAlbum.albums = albums;
