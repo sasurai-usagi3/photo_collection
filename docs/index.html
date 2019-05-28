@@ -9,7 +9,7 @@
 <body>
   <ul id="js-list-album">
     <li v-for="album in albums">
-      <a>
+      <a :href="album.url">
         <img :src="album.image">
         <h2>{{ album.title }}</h2>
       </a>
