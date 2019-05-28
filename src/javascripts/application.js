@@ -10,7 +10,7 @@ window.addEventListener('load', () => {
     }
   });
 
-  database.ref('albums').once('value').then(snapshot => {
+  database.ref('/index/albums').once('value').then(snapshot => {
     const rawAlbums = snapshot.val();
     let albums = [];
 
