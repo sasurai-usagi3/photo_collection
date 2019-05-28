@@ -25,6 +25,6 @@ window.addEventListener('load', () => {
       albums.push(album);
     }
 
-    listAlbum.albums = albums;
+    listAlbum.albums = albums.reverse();
   });
 });
