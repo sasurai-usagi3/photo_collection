@@ -12,9 +12,9 @@
     <article id="js-album">
       <h2 class="p-subtitle">{{ title }}</h2>
       <p>{{ description }}</p>
-      <ul>
-        <li v-for="photoUrl in photoUrls">
-          <img :src="photoUrl">
+      <ul class="p-image-list">
+        <li v-for="photoUrl in photoUrls" class="p-image-list__item u-text-align--center">
+          <img :src="photoUrl" class="p-image">
         </li>
       </ul>
     </article>
