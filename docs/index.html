@@ -2,18 +2,23 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>sasurai-usagi3's Photographs</title>
   <link rel="stylesheet" href="/application.css">
   <script src="/index.js"></script>
 </head>
 <body>
-  <ul id="js-list-album">
-    <li v-for="album in albums">
-      <a :href="album.url">
-        <img :src="album.image">
-        <h2>{{ album.title }}</h2>
-      </a>
-    </li>
-  </ul>
+  <div class="l-container">
+    <h1 class="p-page-title">sasurai_usagi3's<br>Photographs</h1>
+    <h2 class="p-subtitle">目次</h2>
+    <ul id="js-list-album" class="p-album-list">
+      <li v-for="album in albums" class="p-album-list__item">
+        <a :href="album.url" class="p-link-to-album u-margin--0-auto">
+          <img :src="album.image" class="p-link-to-album__image">
+          <h3 class="p-link-to-album__title">{{ album.title }}</h3>
+        </a>
+      </li>
+    </ul>
+  </div>
 </body>
 </html>

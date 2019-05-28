@@ -2,19 +2,23 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>sasurai-usagi3's Photographs</title>
   <link rel="stylesheet" href="/application.css">
   <script src="/show.js"></script>
 </head>
 <body>
-  <article id="js-album">
-    <h2>{{ title }}</h2>
-    <p>{{ description }}</p>
-    <ul>
-      <li v-for="photoUrl in photoUrls">
-        <img :src="photoUrl">
-      </li>
-    </ul>
-  </article>
+  <div class="l-container">
+    <h1 class="p-page-title">sasurai_usagi3's<br>Photographs</h1>
+    <article id="js-album">
+      <h2 class="p-subtitle">{{ title }}</h2>
+      <p>{{ description }}</p>
+      <ul class="p-image-list">
+        <li v-for="photoUrl in photoUrls" class="p-image-list__item u-text-align--center">
+          <img :src="photoUrl" class="p-image">
+        </li>
+      </ul>
+    </article>
+  </div>
 </body>
 </html>
