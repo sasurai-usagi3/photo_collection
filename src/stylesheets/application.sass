@@ -32,7 +32,7 @@ h1, h2, h3
 .p-link-to-album
   position: relative
   display: block
-  width: 640px
+  width: calc(200% / 3)
   color: #000
   &:hover
     color: #000
@@ -54,6 +54,7 @@ h1, h2, h3
   padding: 0.5em 1em
   box-sizing: border-box
   text-decoration: underline
+  text-align: left
 
 .p-image
   max-width: 100%
@@ -69,3 +70,12 @@ h1, h2, h3
 
 .u-text-align--center
   text-align: center
+
+@media(max-width: 960px)
+  html
+    font-size: 8px
+    text-align: center
+
+  .l-container
+    width: 100%
+
